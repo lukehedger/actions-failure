@@ -35,4 +35,4 @@ jobs:
     
     - name: On failure
       if: ${{ failure() }}
-      run: echo "${{ github.workflow }} failed!"
+      run: echo "${{ github.workflow }} failed! See https://github.com/lukehedger/actions-failure/actions/runs/${{ github.run_id }}"
