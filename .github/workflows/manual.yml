@@ -19,18 +19,18 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "greet"
-  greet:
+  failOrNot:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: Fail
-      if: ${{ github.event.inputs.fail }} == "true"
+      if: ${{ github.event.inputs.fail == "true" }}
       run: exit 1
   
     - name: Pass
-      if: ${{ github.event.inputs.fail }} == "false"
+      if: ${{ github.event.inputs.fail == "false" }}
       run: exit 0
     
     - name: On failure
