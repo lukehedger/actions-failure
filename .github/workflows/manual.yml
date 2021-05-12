@@ -35,4 +35,4 @@ jobs:
     
     - name: On failure
       if: ${{ failure() }}
-      run: echo "I ran on failure!"
+      run: echo "${{ github.workflow }} failed!"
