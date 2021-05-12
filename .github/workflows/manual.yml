@@ -12,7 +12,7 @@ on:
         # Friendly description to be shown in the UI instead of 'name'
         description: 'Should I fail?'
         # Default value if no value is explicitly provided
-        default: "true"
+        default: "yes"
         # Input has to be provided for the workflow to run
         required: true
 
@@ -26,11 +26,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: Fail
-      if: ${{ github.event.inputs.fail == "true" }}
+      if: ${{ github.event.inputs.fail == 'yes' }}
       run: exit 1
   
     - name: Pass
-      if: ${{ github.event.inputs.fail == "false" }}
+      if: ${{ github.event.inputs.fail == 'no' }}
       run: exit 0
     
     - name: On failure
