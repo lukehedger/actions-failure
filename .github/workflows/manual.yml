@@ -25,6 +25,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - name: Echo event_name
+      run: echo ${{ github.event_name }}
+
     - name: Fail
       if: ${{ github.event.inputs.fail == 'yes' }}
       run: exit 1
